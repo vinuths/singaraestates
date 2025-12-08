@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHome, FaBuilding, FaHandshake } from "react-icons/fa"; // 👈 icons from react-icons
+import { FaHome, FaBuilding, FaHandshake, FaTree, FaCity, FaMap } from "react-icons/fa"; // Added icons for new services
 
 const services = [
   {
@@ -16,6 +16,21 @@ const services = [
     title: "Property Consultation",
     desc: "Personalized property consulting services to help you buy, sell, or invest confidently.",
     icon: <FaHandshake className="text-5xl text-amber-400 mb-4" />,
+  },
+  {
+    title: "Farm Land Development",
+    desc: "Develop and sell agricultural land with planned layouts, ensuring maximum utilization and investment value.",
+    icon: <FaTree className="text-5xl text-amber-400 mb-4" />,
+  },
+  {
+    title: "Layout Development",
+    desc: "Design and sell planned residential and commercial layouts with proper infrastructure and amenities.",
+    icon: <FaMap className="text-5xl text-amber-400 mb-4" />,
+  },
+  {
+    title: "Building Sales",
+    desc: "Buy and sell ready-to-move apartments and buildings with verified approvals and premium locations.",
+    icon: <FaCity className="text-5xl text-amber-400 mb-4" />,
   },
 ];
 
