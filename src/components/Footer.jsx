@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -12,11 +13,13 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950 text-white pt-16 pb-8 relative overflow-hidden">
-      {/* Floating gradient circles */}
-      <div className="absolute top-0 left-0 w-56 h-56 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+      
+      {/* Floating gradient circles (FIXED) */}
+      <div className="absolute top-0 left-0 w-56 h-56 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse pointer-events-none"></div>
 
       <div className="relative container mx-auto px-6 md:px-16 grid md:grid-cols-4 gap-10 text-center md:text-left">
+        
         {/* Brand Info */}
         <div>
           <h2 className="text-3xl font-extrabold text-amber-400 mb-4">
@@ -26,71 +29,52 @@ const Footer = () => {
             Building dreams with trust, innovation, and excellence.  
             Your trusted partner in premium real estate.
           </p>
+
           <div className="flex justify-center md:justify-start gap-4">
-            <a
-              href="#"
-              className="bg-white/10 hover:bg-amber-400 hover:text-blue-900 p-3 rounded-full transition"
-            >
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-amber-400 hover:text-blue-900 p-3 rounded-full transition">
               <FaFacebookF />
             </a>
-            <a
-              href="#"
-              className="bg-white/10 hover:bg-amber-400 hover:text-blue-900 p-3 rounded-full transition"
-            >
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-amber-400 hover:text-blue-900 p-3 rounded-full transition">
               <FaInstagram />
             </a>
-            <a
-              href="#"
-              className="bg-white/10 hover:bg-amber-400 hover:text-blue-900 p-3 rounded-full transition"
-            >
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-amber-400 hover:text-blue-900 p-3 rounded-full transition">
               <FaTwitter />
             </a>
-            <a
-              href="#"
-              className="bg-white/10 hover:bg-amber-400 hover:text-blue-900 p-3 rounded-full transition"
-            >
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-amber-400 hover:text-blue-900 p-3 rounded-full transition">
               <FaLinkedinIn />
             </a>
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* Quick Links (FIXED) */}
         <div>
           <h3 className="text-xl font-semibold mb-4 text-amber-400">
             Quick Links
           </h3>
           <ul className="space-y-3 text-blue-100">
             <li>
-              <a
-                href="#about"
-                className="hover:text-amber-400 transition-colors"
-              >
+              <Link to="/about" className="hover:text-amber-400 transition-colors">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#services"
-                className="hover:text-amber-400 transition-colors"
-              >
+              <Link to="/services" className="hover:text-amber-400 transition-colors">
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#properties"
-                className="hover:text-amber-400 transition-colors"
-              >
+              <Link to="/properties" className="hover:text-amber-400 transition-colors">
                 Properties
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact"
-                className="hover:text-amber-400 transition-colors"
-              >
+              <Link to="/contact" className="hover:text-amber-400 transition-colors">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -116,7 +100,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Newsletter Signup */}
+        {/* Newsletter */}
         <div>
           <h3 className="text-xl font-semibold mb-4 text-amber-400">
             Subscribe
@@ -143,7 +127,7 @@ const Footer = () => {
       {/* Divider */}
       <div className="relative container mx-auto mt-12 border-t border-white/20 pt-6 text-center text-blue-200">
         &copy; {new Date().getFullYear()}{" "}
-        <span className="text-amber-400 font-semibold">Singara Estates</span>.
+        <span className="text-amber-400 font-semibold">Singara Estates</span>. 
         All rights reserved.
       </div>
     </footer>

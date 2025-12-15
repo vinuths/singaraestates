@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
-import logo from "../assets/logo.png"; // 👈 Replace with your actual logo
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // mobile only
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -31,7 +31,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        {/* Logo + Brand */}
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
           <span
@@ -55,15 +55,11 @@ const Navbar = () => {
             }`}
           >
             Home
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300" />
           </Link>
 
-          {/* Dropdown (About) */}
-          <div
-            className="relative"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
+          {/* About Dropdown (DESKTOP FIXED) */}
+          <div className="relative group">
             <button
               className={`flex items-center gap-1 font-medium transition ${
                 scrolled
@@ -72,40 +68,22 @@ const Navbar = () => {
               }`}
             >
               About
-              <FaChevronDown
-                className={`text-xs transition-transform duration-300 ${
-                  dropdownOpen ? "rotate-180" : ""
-                }`}
-              />
+              <FaChevronDown className="text-xs transition-transform duration-300 group-hover:rotate-180" />
             </button>
 
-            {/* Dropdown Menu */}
-            {dropdownOpen && (
-              <div
-                className="absolute left-0 top-8 bg-white text-blue-900 rounded-lg shadow-xl w-44 animate-fadeIn z-50"
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
-              >
-                <Link
-                  to="/about"
-                  className="block px-4 py-2 hover:bg-amber-100"
-                >
-                  Who We Are
-                </Link>
-                <Link
-                  to="/team"
-                  className="block px-4 py-2 hover:bg-amber-100"
-                >
-                  Our Team
-                </Link>
-                <Link
-                  to="/careers"
-                  className="block px-4 py-2 hover:bg-amber-100"
-                >
-                  Careers
-                </Link>
-              </div>
-            )}
+            <div
+              className="absolute left-0 top-8 bg-white text-blue-900 rounded-lg shadow-xl w-44
+                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                         transition-all duration-300 z-50"
+            >
+              <Link to="/about" className="block px-4 py-2 hover:bg-amber-100">
+                Who We Are
+              </Link>
+              <Link to="/team" className="block px-4 py-2 hover:bg-amber-100">
+                Our Team
+              </Link>
+          
+            </div>
           </div>
 
           {/* Properties */}
@@ -118,7 +96,7 @@ const Navbar = () => {
             }`}
           >
             Properties
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300" />
           </Link>
 
           {/* Contact */}
@@ -131,19 +109,19 @@ const Navbar = () => {
             }`}
           >
             Contact
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300" />
           </Link>
 
           {/* CTA */}
           <Link
             to="/contact"
-            className="bg-amber-400 text-blue-900 px-5 py-2 rounded-full font-semibold hover:bg-amber-300 transition duration-300 shadow-md"
+            className="bg-amber-400 text-blue-900 px-5 py-2 rounded-full font-semibold hover:bg-amber-300 transition shadow-md"
           >
             Get in Touch
           </Link>
         </div>
 
-        {/* Mobile Button */}
+        {/* Mobile Menu Button */}
         <button
           className={`md:hidden ${scrolled ? "text-blue-900" : "text-white"}`}
           onClick={() => setOpen(!open)}
@@ -170,12 +148,12 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white/90 backdrop-blur-md text-blue-900 flex flex-col space-y-4 py-5 px-6 shadow-xl animate-slideDown">
+        <div className="md:hidden bg-white/90 backdrop-blur-md text-blue-900 flex flex-col space-y-4 py-5 px-6 shadow-xl">
           <Link to="/" className="font-semibold hover:text-amber-500">
             Home
           </Link>
 
-          {/* Mobile Dropdown */}
+          {/* Mobile About Dropdown */}
           <div>
             <button
               className="w-full flex justify-between items-center font-semibold hover:text-amber-500"
@@ -184,10 +162,11 @@ const Navbar = () => {
               About
               <FaChevronDown
                 className={`text-sm transition-transform ${
-                  dropdownOpen ? "rotate-180" : "rotate-0"
+                  dropdownOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
+
             {dropdownOpen && (
               <div className="flex flex-col mt-2 ml-4 space-y-2 text-sm">
                 <Link to="/about" className="hover:text-amber-500">
@@ -196,9 +175,7 @@ const Navbar = () => {
                 <Link to="/team" className="hover:text-amber-500">
                   Our Team
                 </Link>
-                <Link to="/careers" className="hover:text-amber-500">
-                  Careers
-                </Link>
+              
               </div>
             )}
           </div>
