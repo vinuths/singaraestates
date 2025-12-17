@@ -87,7 +87,7 @@ const Footer = () => {
           <ul className="space-y-4 text-blue-100">
             <li className="flex items-center justify-center md:justify-start gap-3">
               <FaMapMarkerAlt className="text-amber-400" />
-              <span>123 Main Street, Singara City, India</span>
+              <span>Bengaluru,Karnataka</span>
             </li>
             <li className="flex items-center justify-center md:justify-start gap-3">
               <FaPhoneAlt className="text-amber-400" />
