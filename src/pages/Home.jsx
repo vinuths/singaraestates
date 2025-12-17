@@ -10,7 +10,7 @@ const Home = () => {
   const [openChat, setOpenChat] = useState(false);
 
   // WhatsApp & Email
-  const whatsappNumber = "919876543210"; // Replace with your number
+  const whatsappNumber = "9743880882"; // Replace with your number
   const emailAddress = "contact@singaraestates.com"; // Replace with your email
 
   const messages = [

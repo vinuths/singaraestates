@@ -8,7 +8,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
-} from "react-icons/fa";
+} from "react-icons/fa"; 
 
 const Footer = () => {
   return (
@@ -23,7 +23,7 @@ const Footer = () => {
         {/* Brand Info */}
         <div>
           <h2 className="text-3xl font-extrabold text-amber-400 mb-4">
-            Singara Estates
+            Singara Estates Properties
           </h2>
           <p className="text-blue-100 mb-6">
             Building dreams with trust, innovation, and excellence.  
@@ -91,7 +91,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center justify-center md:justify-start gap-3">
               <FaPhoneAlt className="text-amber-400" />
-              <span>+91 98765 43210</span>
+              <span>+91 9743880882</span>
             </li>
             <li className="flex items-center justify-center md:justify-start gap-3">
               <FaEnvelope className="text-amber-400" />
