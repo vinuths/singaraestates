@@ -78,7 +78,7 @@ const About = () => {
             to="/properties"
             className="bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-amber-500 hover:text-blue-900 transition-all duration-300 inline-block"
           >
-            Explore Our Projectsrioj
+            Explore Our Projects
           </Link>
         </div>
       </div>
