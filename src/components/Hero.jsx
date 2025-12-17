@@ -20,7 +20,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6 text-white">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 animate-fadeIn">
-        ss  Singara Estates & Properties
+         Singara Estates & Properties
         </h1>
 
         <p className="text-lg md:text-2xl max-w-3xl mb-8 text-blue-100 animate-fadeIn delay-200">
