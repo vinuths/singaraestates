@@ -60,7 +60,7 @@ const ContactForm = () => {
               <FaMapMarkerAlt className="text-3xl text-amber-400" />
               <div>
                 <h3 className="text-xl font-semibold">Our Office</h3>
-                <p>Seegehalli Road, Bengaluru</p>
+                <p> Bengaluru,karnataka</p>
               </div>
             </div>
 

@@ -102,7 +102,7 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 py-16 px-8 text-center text-white">
+      {/* <section className="bg-gradient-to-r from-blue-900 to-blue-700 py-16 px-8 text-center text-white">
         <h2 className="text-3xl font-bold mb-4">
           Looking for Your Dream Property?
         </h2>
@@ -115,7 +115,7 @@ const Home = () => {
         >
           Contact Us
         </a>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="bg-blue-900 text-white py-6 text-center">
