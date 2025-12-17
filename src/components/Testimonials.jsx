@@ -8,29 +8,29 @@ const testimonials = [
   {
     id: 1,
     name: "Rohit Sharma",
-    role: "Homeowner",
+    role: "Apartment Buyer",
     image: client1,
     rating: 5,
     feedback:
-      "Singara Estates helped me find my dream home! The team was professional, responsive, and made the entire process seamless.",
+      "I purchased an apartment developed by Singara Estates, and the entire process was smooth and transparent. From documentation to handover, everything was handled professionally.",
   },
   {
     id: 2,
     name: "Anita Kapoor",
-    role: "Investor",
+    role: "Farmland Investor",
     image: client2,
-    rating: 4,
+    rating: 5,
     feedback:
-      "Excellent service and advice. Their expertise in the local market helped me make a great investment.",
+      "Singara Estates’ farmland project was well planned with clear titles and proper layout. It’s a safe and long-term investment, and I’m very satisfied with my purchase.",
   },
   {
     id: 3,
     name: "Suresh Menon",
-    role: "Business Owner",
+    role: "Layout Plot Owner",
     image: client3,
     rating: 5,
     feedback:
-      "I leased a commercial property through Singara Estates. The team handled everything efficiently and professionally.",
+      "I bought a plot in one of Singara Estates’ approved layouts. The legal clarity, road access, and overall development quality exceeded my expectations.",
   },
 ];
 

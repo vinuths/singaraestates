@@ -1,106 +1,94 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaMapMarkerAlt, FaHome } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import property1 from "../assets/property1.jpg";
 import property2 from "../assets/property2.jpg";
-import property3 from "../assets/property3.jpg"; // 👈 Add a 3rd image if available
+import property3 from "../assets/property3.jpg";
 
 const properties = [
   {
     id: 1,
-    name: "Luxury Villa",
+    name: "Premium Farmland Development",
     image: property1,
-    location: "Kodaikanal Hills",
-    price: "₹2.5 Cr",
-    type: "Villa",
+    location: "North Bengaluru",
+    price: "Starting from ₹35 Lakhs",
+    type: "Farmland",
   },
   {
     id: 2,
-    name: "Modern Apartment",
+    name: "Approved Residential Layout",
     image: property2,
-    location: "Coimbatore City",
-    price: "₹1.2 Cr",
-    type: "Apartment",
+    location: "Devanahalli",
+    price: "Plots from ₹4,999 / sq.ft",
+    type: "Layout",
   },
   {
     id: 3,
-    name: "Commercial Office Space",
+    name: "Residential Apartments",
     image: property3,
-    location: "Ooty Main Road",
-    price: "₹3.8 Cr",
-    type: "Office",
+    location: "East Bengaluru",
+    price: "Starting from ₹65 Lakhs",
+    type: "Apartments",
   },
 ];
 
 const Properties = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
+    <section className="py-20 bg-gradient-to-b from-blue-50 via-white to-blue-100">
       <div className="container mx-auto px-6">
-        {/* Section Heading */}
+        
+        {/* Heading */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
-            Explore Our Premium Properties
+          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4">
+            Our Ongoing Projects
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover handpicked real estate opportunities that combine elegance,
-            comfort, and prime locations — perfect for modern living or
-            investment.
+            Explore legally approved farmland developments, residential layouts,
+            and apartments built with long-term value and complete transparency.
           </p>
         </div>
 
-        {/* Properties Grid */}
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-10">
+        {/* Grid */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {properties.map((p) => (
             <div
               key={p.id}
-              className="relative group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
             >
-              {/* Property Image */}
-              <div className="relative">
+              {/* Image */}
+              <div className="relative h-60 overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.name}
-                  className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-950/70 via-transparent to-transparent" />
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                  <Link
-                    to={`/properties/${p.id}`}
-                    className="bg-amber-400 text-blue-900 font-semibold px-5 py-2 rounded-full shadow-lg hover:bg-amber-300 transition"
-                  >
-                    View Details
-                  </Link>
-                </div>
-
-                {/* Type Tag */}
-                <span className="absolute top-4 left-4 bg-amber-400 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-md">
+                <span className="absolute top-4 left-4 bg-amber-400 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase">
                   {p.type}
                 </span>
               </div>
 
-              {/* Property Details */}
-              <div className="p-5">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-2">
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-blue-900 mb-2">
                   {p.name}
                 </h3>
 
                 <div className="flex items-center text-gray-500 mb-3">
                   <FaMapMarkerAlt className="mr-2 text-amber-400" />
-                  <span>{p.location}</span>
+                  {p.location}
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-blue-900">
+                  <span className="text-lg font-bold text-green-700">
                     {p.price}
                   </span>
                   <Link
                     to={`/properties/${p.id}`}
-                    className="text-amber-500 font-medium hover:underline"
+                    className="text-amber-500 font-semibold hover:underline"
                   >
-                    Learn More →
+                    View Details →
                   </Link>
                 </div>
               </div>
@@ -108,13 +96,13 @@ const Properties = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <div className="text-center mt-16">
           <Link
             to="/properties"
-            className="bg-blue-900 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-md hover:bg-blue-800 transition duration-300"
+            className="inline-block bg-blue-900 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-blue-800 transition"
           >
-            View All Properties
+            View All Projects
           </Link>
         </div>
       </div>

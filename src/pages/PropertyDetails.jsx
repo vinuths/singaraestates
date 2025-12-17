@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { FaMapMarkerAlt, FaHome, FaCheckCircle } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
 import property1 from "../assets/property1.jpg";
 import property2 from "../assets/property2.jpg";
 import property3 from "../assets/property3.jpg";
@@ -9,57 +9,59 @@ const PropertyDetails = () => {
   const { id } = useParams();
   const propertyId = Number(id);
 
-  // Hardcoded property details
   const property = (() => {
     switch (propertyId) {
       case 1:
         return {
-          name: "Luxury Villa",
+          name: "Premium Farmland Development",
           image: property1,
-          location: "Kodaikanal Hills",
-          price: "₹2.5 Cr",
-          type: "Villa",
+          location: "North Bengaluru",
+          price: "Starting from ₹35 Lakhs",
+          type: "Farmland",
           description:
-            "A premium luxury villa located in the serene hills of Kodaikanal, offering breathtaking views, modern architecture, and a peaceful lifestyle ideal for weekend retreats and long-term investment.",
+            "A well-planned farmland development project designed for long-term investment, weekend living, and sustainable growth. The project features clear documentation, proper access roads, and future-ready planning.",
           highlights: [
-            "Hill view location",
-            "Premium gated community",
-            "Clear legal documentation",
-            "Excellent rental potential",
+            "Clear title & legal approval",
+            "Well-laid internal roads",
+            "Ideal for long-term investment",
+            "Peaceful & green surroundings",
           ],
         };
+
       case 2:
         return {
-          name: "Modern Apartment",
+          name: "Approved Residential Layout",
           image: property2,
-          location: "Coimbatore City",
-          price: "₹1.2 Cr",
-          type: "Apartment",
+          location: "Devanahalli",
+          price: "Plots from ₹4,999 / sq.ft",
+          type: "Layout",
           description:
-            "A contemporary apartment project located in the heart of Coimbatore, designed for urban comfort with excellent connectivity, modern amenities, and strong appreciation value.",
+            "An approved residential layout developed with proper planning, drainage, and road connectivity. Suitable for individual house construction and future appreciation.",
           highlights: [
-            "Prime city location",
-            "Lift & power backup",
-            "Close to IT parks & schools",
-            "High resale value",
+            "Government approved layout",
+            "Wide roads & proper drainage",
+            "Good connectivity",
+            "High appreciation potential",
           ],
         };
+
       case 3:
         return {
-          name: "Commercial Office Space",
+          name: "Residential Apartments",
           image: property3,
-          location: "Ooty Main Road",
-          price: "₹3.8 Cr",
-          type: "Office",
+          location: "East Bengaluru",
+          price: "Starting from ₹65 Lakhs",
+          type: "Apartments",
           description:
-            "A high-visibility commercial property suitable for offices, showrooms, and investment purposes, located on a main road with excellent footfall.",
+            "Modern residential apartments built with quality construction standards, designed for comfortable urban living with essential amenities and easy accessibility.",
           highlights: [
-            "Main road frontage",
-            "Ideal for commercial use",
-            "High ROI investment",
-            "Immediate possession",
+            "Quality construction",
+            "Ready-to-move options",
+            "Good rental demand",
+            "Clear ownership documents",
           ],
         };
+
       default:
         return null;
     }
@@ -77,8 +79,9 @@ const PropertyDetails = () => {
   }
 
   return (
-    <div className="pt-28 bg-gray-50 min-h-screen">
+    <div className="pt-28 bg-gradient-to-b from-blue-50 via-white to-blue-100 min-h-screen">
       <div className="max-w-6xl mx-auto px-6">
+        
         {/* Image */}
         <img
           src={property.image}
@@ -97,8 +100,10 @@ const PropertyDetails = () => {
             {property.location}
           </div>
 
-          <div className="flex gap-6 items-center mb-6">
-            <span className="text-xl font-bold text-blue-900">{property.price}</span>
+          <div className="flex flex-wrap gap-4 items-center mb-6">
+            <span className="text-xl font-bold text-green-700">
+              {property.price}
+            </span>
             <span className="bg-amber-400 text-blue-900 px-4 py-1 rounded-full text-sm font-semibold">
               {property.type}
             </span>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { sendEmail } from "../email"; // make sure path is correct
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,29 +11,40 @@ const ContactForm = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Message sent! (Demo)");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+    setLoading(true);
+
+    sendEmail(formData)
+      .then((result) => {
+        console.log(result.text);
+        alert("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.log(error.text);
+        alert("Oops! Something went wrong. Please try again.");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
     <section className="relative py-20 bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 text-white overflow-hidden">
-      {/* Floating background elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
 
       <div className="relative container mx-auto px-6 lg:px-20">
-        {/* Section Header */}
         <h2 className="text-5xl font-extrabold text-center mb-6">
           Get in <span className="text-amber-400">Touch</span>
         </h2>
@@ -48,7 +60,7 @@ const ContactForm = () => {
               <FaMapMarkerAlt className="text-3xl text-amber-400" />
               <div>
                 <h3 className="text-xl font-semibold">Our Office</h3>
-                <p>seegehalli Road,Bengaluru </p>
+                <p>Seegehalli Road, Bengaluru</p>
               </div>
             </div>
 
@@ -56,7 +68,7 @@ const ContactForm = () => {
               <FaPhoneAlt className="text-3xl text-amber-400" />
               <div>
                 <h3 className="text-xl font-semibold">Phone</h3>
-                <p>+91 98765 43210</p>
+                <p>9743880882</p>
               </div>
             </div>
 
@@ -69,7 +81,7 @@ const ContactForm = () => {
             </div>
           </div>
 
-          {/* Form Card */}
+          {/* Form */}
           <form
             onSubmit={handleSubmit}
             className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-white/20"
@@ -82,9 +94,9 @@ const ContactForm = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
                   placeholder="Your Name"
                   required
+                  className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 />
               </div>
               <div>
@@ -94,9 +106,9 @@ const ContactForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
                   placeholder="Your Email"
                   required
+                  className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 />
               </div>
             </div>
@@ -108,8 +120,8 @@ const ContactForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 placeholder="Your Phone Number"
+                className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
               />
             </div>
 
@@ -120,8 +132,8 @@ const ContactForm = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 placeholder="Subject"
+                className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
               />
             </div>
 
@@ -131,18 +143,19 @@ const ContactForm = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
-                rows="4"
                 placeholder="Your Message"
+                rows="4"
                 required
+                className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
               ></textarea>
             </div>
 
             <button
               type="submit"
+              disabled={loading}
               className="mt-8 w-full bg-amber-400 text-blue-900 py-3 rounded-lg font-bold text-lg hover:bg-amber-300 transition duration-300"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
